@@ -7,9 +7,8 @@ using Nmap:
 
 ```shell
 # nmap -vvv -T4 -sS -Pn -n --min-rate 250 --unique --max-retries 3 \
-      --max-rtt-timeout 1000ms --min-hostgroup 256 --top-ports 580 \
-      [--dns-servers 1.1.1.1,1.0.0.1,9.9.9.9,8.8.8.8,8.8.4.4] [--open] \
-      -oN <filename> -oX <filename> <host1>,<host2>,...
+      --max-rtt-timeout 1000ms --min-hostgroup 128 --top-ports 580 \
+      [--open] -oN <filename> -oX <filename> <host1>,<host2>,...
 ```
 
 Here, running as root allows Nmap to use options line `-sS`
@@ -33,12 +32,9 @@ for a probe response
 
   `--unique` makes Nmap scan each address only once
 
-  `--dns-servers 1.1.1.1,1.0.0.1,9.9.9.9,8.8.8.8,8.8.4.4` makes Nmap use the
-specified DNS servers for performing Reverse DNS lookups
-
   `--open` shows only open ports or ports that are supposedly open
 
-  `--min-hostgroup 256` makes Nmap scan at least 256 different hosts in
+  `--min-hostgroup 128` makes Nmap scan at least 128 different hosts in
 parallel depending on the network
 
   `--top-ports 580` makes Nmap scan top 580 ports
